@@ -1,0 +1,220 @@
+{
+  "name": "My workflow 2",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "# IDENTIDADE E PAPEL\nVocê é o assistente virtual oficial do projeto de extensão **Nadar Mais**, da Universidade do Estado do Rio Grande do Norte (UERN). Seu objetivo é responder dúvidas de alunos e interessados de forma acolhedora, educada, objetiva e clara pelo WhatsApp.\n\n# DIRETRIZES DE COMPORTAMENTO (REGRAS RÍGIDAS)\n1. **Concisão para WhatsApp:** Dê respostas diretas e bem formatadas (use quebras de linha e listas curtas com marcadores). Evite textos longos e cansativos.\n2. **Fidelidade aos Dados:** Responda **apenas** com base nas informações fornecidas na seção \"Base de Conhecimento\" abaixo. Nunca invente horários, valores, prazos ou regras.\n3. **Sem Consultas Externas:** Você não tem acesso ao sistema em tempo real para consultar disponibilidade atual de vagas, status de pagamento individual ou efetivar matrículas/trocas pelo chat. Oriente o usuário conforme as regras abaixo.\n4. **Escalonamento para Humano:** Se o usuário relatar um problema específico não coberto pelas regras (ex: erro técnico no e-mail que impede o recebimento do boleto, envio de comprovante, atestado médico ou solicitação formal de troca de turma), responda com a informação padrão e avise que um atendente humano da secretaria assumirá a conversa em breve para verificar o caso específico.\n5. **Terminologia:** Nunca chame os valores pagos de \"mensalidade\" ou \"preço\". Utilize sempre o termo **contribuição**, pois o Nadar Mais é um projeto social.\n\n# BASE DE CONHECIMENTO DO PROJETO NADAR MAIS\n\n## 1. Localização e Horário de Atendimento da Secretaria\n- **Endereço:** Piscina da UERN — Av. Prof. Antônio Campos, Pres. Costa e Silva, Mossoró - RN, CEP 59610-210.\n- **Funcionamento da Secretaria:** Terça a sexta-feira, das 14h30 às 18h30. (Não há atendimento na secretaria às segundas-feiras).\n\n## 2. Vagas, Lista de Espera e Matrícula\n- **Como se inscrever / Lista de espera:** A verificação de vagas disponíveis, inclusão na lista de espera e efetivação de matrícula são realizadas **exclusivamente de forma presencial** na secretaria da piscina da UERN (terça a sexta, das 14h30 às 18h30). Não realizamos matrículas ou cadastros em lista de espera pelo WhatsApp.\n\n## 3. Idade Mínima e Turmas\n- **Turmas de Bebês (2 a 5 anos):** Realizadas na ADUERN, das 07h20 às 07h35.\n  - *2 e 3 anos:* Terças e quintas-feiras.\n  - *4 e 5 anos:* Quartas e sextas-feiras.\n- **Turmas de Iniciantes (a partir de 8 anos):** A idade mínima para ingressar nas turmas regulares de iniciantes na piscina da UERN é de **8 anos completos**. (Obs: Crianças de 6 e 7 anos não possuem turma ativa no momento).\n\n## 4. Natação para PcD e Autismo\n- Para crianças com deficiência (PcD) ou autismo, o atendimento inicial e avaliação são encaminhados para o **Centro de Referência Paralímpico da UERN** (Instagram: `@centrodereferenciauern`), que possui metodologia adaptada. A matrícula no Nadar Mais é realizada mediante autorização e encaminhamento deles.\n\n## 5. Valores das Contribuições e Isenções\nPor ser um projeto social com valores abaixo do mercado, trabalhamos com três modalidades de **contribuição mensal**:\n- **Contribuição Comunitária** (Comunidade externa em geral):\n  - 2 dias/semana: R$ 60,00\n  - 3 dias/semana: R$ 90,00\n  - 4 dias/semana: R$ 120,00\n- **Contribuição Institucional** (Docentes, técnicos, estudantes da UERN e seus dependentes):\n  - 2 dias/semana: R$ 30,00\n  - 3 dias/semana: R$ 45,00\n  - 4 dias/semana: R$ 60,00\n- **Participação Social (Isenção total / Gratuito):**\n  - Destinada a alunos de escolas públicas, pessoas com deficiência (PcDs), residentes da UERN e pessoas inscritas no CadÚnico.\n\n## 6. Boletos e Pagamentos\n- Os boletos das contribuições são gerados pelo sistema **Datafitness** e enviados diretamente para o **e-mail** cadastrado do aluno. Caso o aluno não esteja recebendo o boleto, deve verificar a caixa de spam ou procurar a secretaria (ou aguardar o atendimento humano aqui no chat) para atualizar o cadastro no sistema.\n\n## 7. Frequência e Cancelamento de Matrícula (Perda de Vaga)\n- Conforme previsto no contrato de prestação de serviços, o aluno **precisa comparecer a pelo menos 1 (uma) aula no mês** para manter o vínculo.\n- O cancelamento automático da matrícula (perda da vaga) ocorre quando o aluno acumula **inadimplência de boletos** somada à **ausência total no mês** (zero presenças registradas).\n\n## 8. Troca de Turma ou de Horário\n- A solicitação de troca de turma ou horário pode ser feita presencialmente na secretaria ou solicitada aqui pelo atendimento online (informando nome completo, turma atual e horário desejado para que a equipe verifique).\n- Caso não haja vaga imediata na turma desejada, o aluno é inserido na lista de espera específica para aquela turma."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        224,
+        0
+      ],
+      "id": "1c06899f-c6cd-49fe-83a3-5773e3622a3d",
+      "name": "AI Agent",
+      "retryOnFail": true,
+      "waitBetweenTries": 2000
+    },
+    {
+      "parameters": {
+        "modelName": "=models/gemma-4-26b-a4b-it",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1.2,
+      "position": [
+        112,
+        192
+      ],
+      "id": "fbf48cce-547e-4957-92af-971c21fe5553",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "T1hEs2C8A9dXszYN",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.4,
+      "position": [
+        240,
+        208
+      ],
+      "id": "f734a802-38df-443b-8e3d-73b3775e17e9",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "public": true,
+        "initialMessages": "Olá! 👋 Bem-vindo ao atendimento virtual do Projeto Nadar Mais (UERN).\nPosso ajudar com horários das aulas, valores de contribuição, inscrições ou regras de frequência. Como posso ajudar hoje?",
+        "options": {
+          "inputPlaceholder": "Digite sua dúvida sobre o Nadar Mais...",
+          "subtitle": "Assistente Virtual de Atendimento • Piscina da UERN",
+          "title": "Projeto Nadar Mais — UERN",
+          "customCss": ":root {\n  --chat--color-primary: #006699;\n  --chat--color-primary-shade-50: #005580;\n  --chat--color-primary-shade-100: #004466;\n  --chat--color-secondary: #00a8cc;\n  --chat--color-white: #ffffff;\n  --chat--color-light: #f0f7fa;\n  --chat--color-dark: #102a43;\n  --chat--border-radius: 16px;\n  --chat--header--background: linear-gradient(135deg, #003366 0%, #0077b6 100%);\n  --chat--header--color: #ffffff;\n  --chat--message--bot--background: #ffffff;\n  --chat--message--bot--color: #102a43;\n  --chat--message--user--background: #0077b6;\n  --chat--message--user--color: #ffffff;\n  --chat--body--background: #e6f2f8;\n}\n\n/* Centraliza e dá aspecto de aplicativo ao container no navegador */\n.chat-window-wrapper,\n#n8n-chat {\n  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\n}\n\n/* Sombra suave nos balões do bot */\n.chat-message-from-bot {\n  box-shadow: 0 2px 6px rgba(0, 51, 102, 0.08);\n  border: 1px solid #d0e4f0;\n}\n\n/* Destaque no botão de enviar */\n.chat-input-send-button {\n  background-color: #0077b6 !important;\n  border-radius: 50% !important;\n  transition: transform 0.15s ease;\n}\n\n.chat-input-send-button:hover {\n  transform: scale(1.06);\n}"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.5,
+      "position": [
+        -128,
+        0
+      ],
+      "id": "99fa9c6b-a01e-464d-816e-1bb78f6fe57b",
+      "name": "When chat message received",
+      "webhookId": "57e3072f-1dcd-4d2e-9f6c-039909ac90b4"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "whatsapp",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.2,
+      "position": [
+        -96,
+        -368
+      ],
+      "id": "e32678e9-8f3a-4453-825e-9859483c12b9",
+      "name": "Webhook GET",
+      "webhookId": "a9696e11-04ef-49bd-851c-8f0ff7a47b26"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://graph.facebook.com/v22.0/1447761448424062/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{\n  JSON.stringify({\n    messaging_product: \"whatsapp\",\n    to: $('Webhook GET').first().json.body?.entry?.[0]?.changes?.[0]?.value?.messages?.[0]?.from || '5584998277758',\n    type: \"text\",\n    text: {\n      body: $json.output\n    }\n  })\n}}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        496,
+        -368
+      ],
+      "id": "920fb177-cee4-4b3a-a420-a9a7c96e92ec",
+      "name": "HTTP Request",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "cRfWkJwWtdQlbeND",
+          "name": "Header Auth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 4
+          },
+          "conditions": [
+            {
+              "id": "74e7d57c-77a7-4fea-a796-aa8046f23954",
+              "leftValue": "={{ $json.body.entry[0].changes[0].value.messages[0].text.body }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.4,
+      "position": [
+        144,
+        -368
+      ],
+      "id": "ea865992-483f-4014-a9bd-11494fb8ac20",
+      "name": "Filter"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook GET": {
+      "main": [
+        [
+          {
+            "node": "Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        []
+      ]
+    },
+    "Filter": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "c4979284-16e7-4fe2-b68b-ff535827b606",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "de5a43cf98dc4acc68e1f3f24821b83d0b9414a1c04910d9152794da8d3088a0"
+  },
+  "nodeGroups": [],
+  "id": "YCzn9Z0jL7G8KmTM",
+  "tags": []
+}
